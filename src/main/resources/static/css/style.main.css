@@ -1,0 +1,23 @@
+@charset "UTF-8";
+
+.register-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 52px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.btn {
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    height: 34px;
+    line-height: 1;
+    padding: 7px 30px;
+}
+.btn-action {
+    background: #6aaf4e;
+    color: #fff;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>마이페이지</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<link rel="stylesheet" href="css/style.main.css" />
+
+</head>
+
+<body>
+ <div class="menu">
+  <table>
+   <tr>
+    <td><a href="/list">발전소목록</a></td>
+    <td><a href="/detail">발전소상세</a></td>
+    <td><a href="/new">발전소등록</a></td>
+   </tr>
+  </table>
+ </div>
+
+ <div class="menu">
+  <table>
+   <tr>
+    <td>
+     <button id="list-button" class="btn btn-action" data-toggle="modal"
+      data-target="#login-modal">발전소목록</button>
+    </td>
+    <td>
+     <button id="detail-button" class="btn btn-action"
+      data-toggle="modal" data-target="#login-modal">발전소상세</button>
+    </td>
+    <td>
+     <button id="new-button" class="btn btn-action" data-toggle="modal"
+      data-target="#login-modal">발전소등록</button>
+    </td>
+   </tr>
+  </table>
+ </div>
+
+</body>
+</html>
