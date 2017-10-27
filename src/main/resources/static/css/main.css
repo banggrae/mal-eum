@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+h2.title {
+    color: red;
+}
+
+.bottom p.copyright {
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+    text-align: center; -
+    -font-family: 'Nanum Barun Gothic';
+    font-family: 'Malgun Gothic, Consolas';
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 100px;
+    opacity: .5; -
+    -background: orange;
+}
+
+.register-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    height: 52px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.btn {
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 500;
+    height: 34px;
+    line-height: 1;
+    padding: 7px 30px;
+}
+.btn-action {
+   /* background: #6aaf4e; 녹색 */
+    background: #008CBA;
+    color: #fff;
+}
