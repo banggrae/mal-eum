@@ -26,7 +26,10 @@ h2.title {
     height: 52px;
     margin-top: 30px;
     margin-bottom: 30px;
+    background: #6aaf4e;
+    color: #fff;
 }
+
 .btn {
     border-radius: 4px;
     font-size: 16px;
@@ -35,8 +38,9 @@ h2.title {
     line-height: 1;
     padding: 7px 30px;
 }
+
 .btn-action {
-   /* background: #6aaf4e; 녹색 */
+    /* background: #6aaf4e; 녹색 */
     background: #008CBA;
     color: #fff;
 }

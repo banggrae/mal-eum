@@ -10,3 +10,6 @@ Thumbs.db
 # build directory and files
 /build
 /bin
+.gradle
+/.gradle
+
