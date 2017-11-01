@@ -2,62 +2,81 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
     xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
 <head>
-<title>로그인/회원가입</title>
+<title>날씨맑음</title>
 <meta charset="utf-8" />
+<link rel="icon" href="img/mal-eum_icon.png" />
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
 </head>
 <body>
-    <h1>Login</h1>
+
+    <h1>로그인 / 회원가입</h1>
     <div class="container">
 
         <!-- 네이버아이디로로그인 버튼 노출 영역 -->
         <div id="naver_id_login">
             <!-- //네이버아이디로로그인 버튼 노출 영역 -->
             <script type="text/javascript">
-                                                    var naver_id_login = new naver_id_login(
-                                                            "YOUR_CLIENT_ID",
-                                                            "http://127.0.0.1:8080/login-naver-callback.html");
-                                                    var state = naver_id_login
-                                                            .getUniqState();
+                var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "http://127.0.0.1:8080/login-naver-callback.html");
+                var state = naver_id_login.getUniqState();
 
-                                                    naver_id_login.setButton(
-                                                            "green", 3, 40);
-                                                    naver_id_login
-                                                            .setDomain(".mal-eum.com");
-                                                    naver_id_login
-                                                            .setState(state);
-                                                    naver_id_login.setPopup();
-                                                    naver_id_login
-                                                            .init_naver_id_login();
-                                                </script>
+                naver_id_login.setButton("green", 3, 40);
+                naver_id_login.setDomain(".mal-eum.com");
+                naver_id_login.setState(state);
+                naver_id_login.setPopup();
+                naver_id_login.init_naver_id_login();
+            </script>
         </div>
         <div>
             <a id="kakao-login-btn"></a>
             <script type='text/javascript'>
-                                                    // <![CDATA[
-                                                    // 사용할 앱의 JavaScript 키를 설정해 주세요.
-                                                    Kakao.init('YOUR APP KEY');
-                                                    // 카카오 로그인 버튼을 생성합니다.
-                                                    Kakao.Auth.createLoginButton({
-                                                                container : '#kakao-login-btn',
-                                                                success : function (
-                                                                        authObj) {
-                                                                    alert(JSON
-                                                                            .stringify(authObj));
-                                                                },
-                                                                fail : function (
-                                                                        err) {
-                                                                    alert(JSON
-                                                                            .stringify(err));
-                                                                }
-                                                            });
-                                                    // ]]>
-                                                </script>
+                // <![CDATA[
+                // 사용할 앱의 JavaScript 키를 설정해 주세요.
+
+                Kakao.init('YOUR APP KEY');
+                // 카카오 로그인 버튼을 생성합니다.
+                Kakao.Auth.createLoginButton({
+                    container : '#kakao-login-btn',
+                    success : function (authObj) {
+                        alert(JSON.stringify(authObj));
+                    },
+                    fail : function (err) {
+                        alert(JSON.stringify(err));
+                    }
+                });
+                // ]]>
+            </script>
         </div>
         <div>
-            <a href="/login/facebook">페이스북 아이디로 로그인</a>
+            <div id="fb-root"></div>
+
+            <script type="text/javascript">
+                window.fbAsyncInit = function () {
+                    FB.init({
+                        appId : 'YOUR APP ID',
+                        cookie : true, // enable cookies to allow the server to access 
+                        // the session
+                        xfbml : true, // parse social plugins on this page
+                        version : 'v2.10' // use graph api version 2.8
+                    });
+                };
+
+                (function (d, s, id) {
+                    var js, fjs = d.getElementsByTagName(s)[0];
+                    if (d.getElementById(id))
+                        return;
+                    js = d.createElement(s);
+                    js.id = id;
+                    js.src = 'https://connect.facebook.net/ko_KR/sdk.js';
+                    fjs.parentNode.insertBefore(js, fjs);
+                }(document, 'script', 'facebook-jssdk'));
+            </script>
+
+            <div class="fb-login-button" data-max-rows="1" data-size="large"
+                data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false"
+                data-use-continue-as="false"></div>
         </div>
+
         <div>
             <a href="/login/google">구글 아이디로 로그인</a>
         </div>
