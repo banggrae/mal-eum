@@ -7,6 +7,9 @@
 <link rel="icon" href="img/mal-eum_icon.png" />
 <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js"></script>
 <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
+<script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
+<meta name="google-signin-client_id" content="392477545876-jerdbf893pobm1ood309d77rbcftrj9s.apps.googleusercontent.com" />
+<link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
 
@@ -14,10 +17,10 @@
     <div class="container">
 
         <!-- 네이버아이디로로그인 버튼 노출 영역 -->
-        <div id="naver_id_login">
+        <div class = "Naver-login" id="naver_id_login">
             <!-- //네이버아이디로로그인 버튼 노출 영역 -->
             <script type="text/javascript">
-                var naver_id_login = new naver_id_login("YOUR_CLIENT_ID", "http://127.0.0.1:8080/login-naver-callback.html");
+                var naver_id_login = new naver_id_login("bKLMI7jFFiSZ4YBow0BO", "http://127.0.0.1:8080/login-naver-callback.html");
                 var state = naver_id_login.getUniqState();
 
                 naver_id_login.setButton("green", 3, 40);
@@ -27,13 +30,12 @@
                 naver_id_login.init_naver_id_login();
             </script>
         </div>
-        <div>
+        <div class="Kakao-login">
             <a id="kakao-login-btn"></a>
             <script type='text/javascript'>
                 // <![CDATA[
                 // 사용할 앱의 JavaScript 키를 설정해 주세요.
-
-                Kakao.init('YOUR APP KEY');
+                Kakao.init('6e8716e9148da8d14de8969bdcafc32f');
                 // 카카오 로그인 버튼을 생성합니다.
                 Kakao.Auth.createLoginButton({
                     container : '#kakao-login-btn',
@@ -47,13 +49,12 @@
                 // ]]>
             </script>
         </div>
-        <div>
+        <div class="Facebook-login">
             <div id="fb-root"></div>
-
             <script type="text/javascript">
                 window.fbAsyncInit = function () {
                     FB.init({
-                        appId : 'YOUR APP ID',
+                        appId : '122042515158701',
                         cookie : true, // enable cookies to allow the server to access 
                         // the session
                         xfbml : true, // parse social plugins on this page
@@ -76,21 +77,30 @@
                 data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false"
                 data-use-continue-as="false"></div>
         </div>
-
-        <div>
-            <a href="/login/google">구글 아이디로 로그인</a>
+        <div class="Google-login">
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <script type="text/javascript">
+                function onSignIn(googleUser) {
+                    var profile = googleUser.getBasicProfile();
+                    console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+                    console.log('Name: ' + profile.getName());
+                    console.log('Image URL: ' + profile.getImageUrl());
+                    console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+                }
+            </script>
         </div>
     </div>
+    <div class="Email-login">
+        <button id="email-login-button" class="btn btn-action" onclick="alert('test');">이메일 로그인</button>
+    </div>
 
-    <div th:if="${param.error}">Invalid username and password.</div>
-    <div th:if="${param.logout}">You have been logged out.</div>
     <form th:action="@{/login}" method="post">
         <div>
-            <label> User Name : <input type="text" name="username" />
+            <label> User Name : <input type="text" name="이메일 아이디" />
             </label>
         </div>
         <div>
-            <label> Password: <input type="password" name="password" />
+            <label> Password: <input type="password" name="비밀번호" />
             </label>
         </div>
         <div>
