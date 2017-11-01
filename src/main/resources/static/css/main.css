@@ -4,6 +4,11 @@ h2.title {
     color: red;
 }
 
+.login-container {
+    width: 300px;
+    align: center;
+}
+
 .bottom p.copyright {
     position: fixed;
     width: 100%;
@@ -14,8 +19,7 @@ h2.title {
     font-size: 15px;
     font-weight: normal;
     line-height: 100px;
-    opacity: .5; -
-    -background: orange;
+    opacity: .5;
 }
 
 .register-btn {
