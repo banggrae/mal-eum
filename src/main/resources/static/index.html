@@ -1,74 +1,140 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html>
+
 <head>
-<title>날씨맑음</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="(주)후아">
+    <meta name="description" content="햇빛발전소를 위한 IT서비스">
+    <meta name="keywords" content="날씨맑음,(주)후아,햇빛발전소,태양광발전소">
 
-<meta charset="utf-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<base href="/" />
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="날씨맑음">
+    <meta property="og:description" content="햇빛발전소를 위한 IT서비스">
+    <meta property="og:image" content="http://www.mal-eum.com/img/mal-eum_logo_mid2.png">
+    <meta property="og:url" content="http://www.mal-eum.com">
 
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<meta name="author" content="(주)후아" />
-<meta name="description" content="햇빛발전소를 위한 IT서비스" />
-<meta name="keywords" content="날씨맑음,후아,햇빛발전소,태양광발전소" />
+    <title>날씨맑음</title>
+    <link rel="shortcut Icon" href="mal-eum_icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="./img/mal-eum_icon.png" />
+    <link rel="icon" href="mal-eum_icon.png" />
+    <link rel="canonical" href="http://www.mal-eum.com">
+    <link rel="stylesheet" type="text/css" href="./style/common.css">
+    <style>
+        body {
+            font-family: "Nanum Gothic";
+            margin: 0px;
+            min-width: 320px;
+        }
 
-<meta property="og:type" content="website" />
-<meta property="og:title" content="날씨맑음" />
-<meta property="og:description" content="햇빛발전소를 위한 IT서비스" />
-<meta property="og:image" content="http://www.mal-eum.com/img/mal-eum_logo.jpg" />
-<meta property="og:url" content="http://www.mal-eum.com" />
+        h3 {
+            color: red;
+        }
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        .topnav {
+            overflow: hidden;
+            /* -- background-color: rgb(35, 132, 223); */
+            /* background-color: #1565c0; */
+            background-color: #0074BF;
+        }
 
-<link rel="shortcut Icon" href="img/mal-eum_icon.png" />
-<link rel="apple-touch-icon-precomposed" href="img/mal-eum_icon.png" />
-<link rel="icon" href="img/mal-eum_icon.png" />
-<link rel="canonical" href="http://www.mal-eum.com">
-<link rel="stylesheet" href="css/main.css" />
+        .topnav a {
+            float: left;
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+        }
+
+        .topnav a:hover:not(.active) {
+            background-color: #111;
+        }
+
+        .active {
+            /* background-color: rgb(248, 200, 7); */
+            background-color: #FEDA00;
+            /* --background-color: #4CAF50; */
+            color: white;
+        }
+
+        .topnav .icon {
+            display: none;
+        }
+
+        .container {
+            text-align: center;
+        }
+
+        .bottom p.copyright {
+            position: fixed;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav a:not(:first-child) {
+                display: none;
+            }
+            .topnav a.icon {
+                float: right;
+                display: block;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav.responsive {
+                position: relative;
+            }
+            .topnav.responsive .icon {
+                position: absolute;
+                right: 0;
+                top: 0;
+            }
+            .topnav.responsive a {
+                float: none;
+                display: block;
+                text-align: left;
+            }
+            .bottom p.copyright {
+                font-size: 12px;
+            }
+        }
+    </style>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 </head>
 
 <body>
-
-    <div class="menu">
-        <table>
-            <tr>
-                <td>
-                    <button id="mypage-button" class="btn btn-action"
-                        onclick="location.href='/mypage';" data-toggle="modal"
-                        data-target="#login-modal">마이페이지</button>
-                </td>
-                <td>
-                    <button id="income-button" class="btn btn-action"
-                        onclick="location.href='/income';" data-toggle="modal"
-                        data-target="#login-modal">발전수익</button>
-                </td>
-                <td>
-                    <button id="market-button" class="btn btn-action"
-                        onclick="location.href='/market';" data-toggle="modal"
-                        data-target="#login-modal">시장동향</button>
-                </td>
-                <td>
-                    <button id="mypage-button" class="btn register-btn"
-                        onclick="location.href='/login';" data-toggle="modal"
-                        data-target="#login-modal">로그인</button>
-                </td>
-            </tr>
-        </table>
+    <div class="topnav">
+        <a class="active" href="#home">홈</a>
+        <a href="/mypage">마이페이지</a>
+        <a href="/income">발전수익</a>
+        <a href="/market">시장동향</a>
+        <a href="/rec/calculator">REC 계산기</a>
+        <a href="/smp/trend">SMP 동향</a>
+        <a href="/board">게시판</a>
+        <a href="http://blog.mal-eum.com">블로그</a>
+        <a href="mailto:wg.lee@huah.co.kr">문의</a>
+        <a href="http://huah.co.kr">만든이</a>
+        <a href="/login">로그인</a>
+        <a href="javascript:void(0);" class="icon">&#9776;</a>
     </div>
-
-    <div class="title-area">
-        <img src="img/mal-eum_logo.jpg" width="300" />
-        <h2 class="title">햇빛 발전소를 위한 IT서비스</h2>
+    <div class="container">
+        <h3>햇빛 발전소를 위한 IT서비스</h3>
+        <img src="./img/mal-eum_logo_mid2.png" />
+        <h4>준비중입니다. 곧 찾아뵙겠습니다.</h4>
     </div>
-
-    <a href="http://huah.co.kr">(주) 후아</a>
-    <p class="contact">
-        문의 : <a href="mailto:wg.lee@huah.co.kr">wg.lee@huah.co.kr</a>
-    </p>
-
     <div class="bottom">
-        <p class="copyright">Copyright &copy; 2017 HUAH Co.,Ltd. All rights reserved.</p>
+        <p class="copyright">Copyright &copy; 2017 HUAH Co., Ltd. All rights reserved.</p>
     </div>
-
+    <script>
+        $(document).ready(function () {
+            $(".icon").click(function () {
+                $(".topnav").toggleClass("responsive");
+            });
+        });
+    </script>
 </body>
+
 </html>

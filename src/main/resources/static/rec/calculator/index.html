@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="(주)후아" />
+    <meta name="description" content="태양광 REC 계산기" />
+    <meta name="keywords" content="햇빛발전,태양광발전,REC,REC계산,REC가중치" />
+
+    <title>REC 계산기</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="REC 계산기" />
+    <meta property="og:description" content="태양광 REC 계산기" />
+    <meta property="og:image" content="http://www.mal-eum.com/img/mal-eum_logo_mid2.png">
+    <meta property="og:url" content="https://mal-eum.appspot.com/" />
+
+    <link rel="shortcut Icon" href="../../img/mal-eum_icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="../../img/mal-eum_icon.png" />
+    <link rel="icon" href="../../img/mal-eum_icon.png" />
+    <link rel="canonical" href="https://mal-eum.appspot.com/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../style/common.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="../../share.js"></script>
+    <script src="rec_calculator.js"></script>
+
+    <style>
+        body {
+            font-family: "Nanum Gothic", sans-serif;
+        }
+
+        .category {
+            border-style: solid;
+            border-radius: 8px;
+            border-width: 3px;
+            display: block;
+            max-width: 320px;
+            margin-bottom: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+            font-size: 15px;
+            border: none;
+            cursor: pointer;
+            width: 270px;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            margin: 10px;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content button {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            border: none;
+            outline: none;
+            background-color: #f9f9f9;
+            font-size: 14px;
+        }
+
+        .dropdown-content button:hover {
+            background-color: #f1f1f1
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        .input {
+            height: 30px;
+            font-size: 14px;
+            text-align-last: right;
+        }
+
+        .input_box {
+            margin: 10px;
+            font-size: 14px;
+        }
+
+        .descripsion {
+            margin: 10px;
+            font-size: 12.5px;
+        }
+
+        .result {
+            margin: 10px;
+            color: red;
+        }
+
+        .co2 {
+            color: green;
+        }
+
+        .sub_des {
+            font-size: 12.5px;
+        }
+
+        .sub_tip {
+            margin: auto;
+            width: 320px;
+            font-size: 13px;
+        }
+
+        @media (min-width: 320px) {
+            .sub_tip {
+                margin: auto;
+                width: 100%;
+                font-size: 13px;
+            }
+            .bottom p.copyright {
+                font-size: 12px;
+            }
+        }
+
+        @media (min-width: 400px) {
+            .sub_tip {
+                margin: auto;
+                width: 340px;
+                font-size: 13px;
+            }
+            .bottom p.copyright {
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 700px) {
+            .sub_tip {
+                margin: auto;
+                width: 340px;
+                font-size: 13px;
+            }
+            .bottom p.copyright {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3 style="text-align: center;">태양광 REC 계산기</h3>
+    <div class="sub_tip">
+        <p>* REC (Renewable Energy Certificate) :
+            <br>&nbsp;&nbsp;신재생에너지로 전기를 생산,공급하였음을 증명하는 인증서</p>
+    </div>
+
+    <div class="category cal_weight">
+        <div class="dropdown">
+            <button class="dropbtn" id="select_type">
+                설치유형을 선택하세요
+                <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content" id="dropdown-list">
+                <button class="list_item" id="type_1">일반부지(0.7~1.2)</button>
+                <button class="list_item" id="type_2">건축물등 기존시설물(1.0~1.5)</button>
+                <button class="list_item" id="type_3">유지등 수면(1.5)</button>
+                <button class="list_item" id="type_4">자가용 발전설비를 통해 전력거래(1.0)</button>
+                <button class="list_item" id="type_5">ESS설비(5.0)</button>
+            </div>
+        </div>
+        <p class="input_box">
+            <label>발전소 용량을 입력하세요 :
+                <input class="input" id="station_capacity" type="number" name="size" min="10" max="10000000" />kWh
+            </label>
+        </p>
+        <p class="descripsion">* 1mWh = 1,000kWh, 1gWh = 1,000,000kWh </p>
+
+        <button class="btn btn-action" id="calculate-rec-weight">REC 가중치 계산하기</button>
+        <div class="result">
+            <p id="rec_weight"></p>
+        </div>
+    </div>
+    <div class="category cal_rec">
+        <div class="input_box">
+            <p>
+                <label>발전량을 입력하세요 :
+                    <input class="input" id="month_amount" type="number" name="amount" min="0" max="10000000" />kWh
+                </label>
+            </p>
+            <p>
+                <label>이전 이월분이 있으면 입력하세요 :
+                    <input class="input" id="pre_remainder" type="number" name="pre-remainder" value="0.0" min="0.0" max="0.999" />
+                </label>
+            </p>
+        </div>
+        <button class="btn btn-action" id="calculate-rec-number">REC 발급량 계산하기</button>
+        <div class="result">
+            <p id="rec_number"></p>
+            <p id="rec_remainder"></p>
+            <p class="co2" id="rec_co2"></p>
+        </div>
+    </div>
+    <ul class="share">
+        <li class="share-item" id="facebook">
+            <img src="../../icon/facebook.gif" />
+        </li>
+        <li class="share-item" id="twitter">
+            <img src="../../icon/twitter.gif" />
+        </li>
+        <li class="share-item" id="naver">
+            <img src="../../icon/naver.gif" />
+        </li>
+    </ul>
+    <div class="bottom">
+        <p class="copyright">Copyright &copy; 2017 HUAH Co., Ltd. All rights reserved.</p>
+    </div>
+
+</body>
+
+</html>

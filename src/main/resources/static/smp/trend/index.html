@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="(주)후아" />
+    <meta name="description" content="태양광 SMP 동향" />
+    <meta name="keywords" content="SMP,햇빛발전소,태양광발전소" />
+
+    <title>태양광 SMP 동향</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="태양광 SMP 동향" />
+    <meta property="og:description" content="태양광 SMP 동향" />
+    <meta property="og:image" content="./compare_oil_with_smp.png" />
+    <meta property="og:url" content="http://mal-eum.com/smp/trend/" />
+
+    <link rel="shortcut Icon" href="../../img/mal-eum_icon.png" />
+    <link rel="apple-touch-icon-precomposed" href="../../img/mal-eum_icon.png" />
+    <link rel="icon" href="../../img/mal-eum_icon.png" />
+    <link rel="canonical" href="https://mal-eum.com/smp/trend/">
+    <link rel="stylesheet" type="text/css" href="../../style/common.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!--Load the AJAX API-->
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+
+    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="../../share.js"></script>
+    <script src="smp_trend.js"></script>
+
+    <style>
+        body {
+            font-family: "Nanum Gothic", sans-serif;
+            margin: 15px;
+        }
+
+        .sub_tip {
+            margin: auto;
+            width: 400px;
+            font-size: 13px;
+        }
+
+        .from {
+            float: right;
+        }
+
+        .chart {
+            width: 100%;
+            min-height: 450px;
+        }
+
+        @media (min-width: 320px) {
+            .sub_tip {
+                margin: auto;
+                width: 100%;
+                font-size: 13px;
+            }
+            body {
+                font-size: 1.0em;
+            }
+            .bottom p.copyright {
+                font-size: 12px;
+            }
+        }
+
+        @media (min-width: 400px) {
+            .sub_tip {
+                margin: auto;
+                width: 400px;
+                font-size: 13px;
+            }
+
+            .bottom p.copyright {
+                font-size: 14px;
+            }
+        }
+
+        @media (min-width: 700px) {
+            .sub_tip {
+                margin: auto;
+                width: 400px;
+                font-size: 13px;
+            }
+
+            .bottom p.copyright {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <h3 style="text-align: center;">SMP(계통한계가격) 동향</h3>
+    <p class="sub_tip">* SMP (System Marginal Price) :
+        <br>&nbsp;&nbsp;생산된 전력을 한국전력(또는 전력거래소)에 판매하는 가격(원/kWh)</p>
+    <div class="chart" id="linechart_month"></div>
+    <div class="chart" id="linechart_quarter"></div>
+    <div class="chart" id="linechart_year"></div>
+    <div id="tablechart"></div>
+
+    <div class="from">
+        출처 :
+        <a href="https://home.kepco.co.kr/kepco/CO/htmlView/CODEPP002.do?menuCd=FN04040502">한전 SMP단가</a>
+    </div>
+    <h3 style="text-align: center; margin-top: 60px">수개월의 시차를 두고 유가와 비슷한 패턴을 보이는 SMP</h3>
+    <div class="compare">
+        <img src="./compare_oil_with_smp.png" />
+    </div>
+    <div class="from">
+        출처 :
+        <a href="https://www.kpx.or.kr/www/contents.do?key=404">전력거래소</a>
+    </div>
+    <ul class="share">
+        <li class="share-item" id="facebook">
+            <img src="../../icon/facebook.gif" />
+        </li>
+        <li class="share-item" id="twitter">
+            <img src="../../icon/twitter.gif" />
+        </li>
+        <li class="share-item" id="naver">
+            <img src="../../icon/naver.gif" />
+        </li>
+    </ul>
+
+    <div class="bottom">
+        <p class="copyright">Copyright &copy; 2017 HUAH Co., Ltd. All rights reserved.</p>
+    </div>
+</body>
+
+</html>
