@@ -11,13 +11,21 @@
 <script src="https://apis.google.com/js/platform.js" async="async" defer="defer"></script>
 <meta name="google-signin-client_id" content="392477545876-jerdbf893pobm1ood309d77rbcftrj9s.apps.googleusercontent.com" />
 <link rel="stylesheet" href="style/main.css" />
+<style>
+.login-container {
+	margin: auto;
+}
+.login-item {
+	margin: 5px;
+}
+</style>
 </head>
 <body>
 
     <div class="login-container">
 
         <!-- 네이버아이디로로그인 버튼 노출 영역 -->
-        <div class = "Naver-login" id="naver_id_login">
+        <div class = "login-item Naver-login" id="naver_id_login">
             <!-- //네이버아이디로로그인 버튼 노출 영역 -->
             <script type="text/javascript">
                 var naver_id_login = new naver_id_login("bKLMI7jFFiSZ4YBow0BO", "http://127.0.0.1:8080/login-naver-callback.html");
@@ -30,7 +38,7 @@
                 naver_id_login.init_naver_id_login();
             </script>
         </div>
-        <div class="Kakao-login">
+        <div class="login-item Kakao-login">
             <a id="kakao-login-btn"></a>
             <script type='text/javascript'>
                 // <![CDATA[
@@ -49,7 +57,7 @@
                 // ]]>
             </script>
         </div>
-        <div class="Facebook-login">
+        <div class="login-item Facebook-login">
             <div id="fb-root"></div>
             <script type="text/javascript">
                 window.fbAsyncInit = function () {
@@ -77,7 +85,7 @@
                 data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false"
                 data-use-continue-as="false"></div>
         </div>
-        <div class="Google-login">
+        <div class="login-item Google-login">
             <div class="g-signin2" data-onsuccess="onSignIn"></div>
             <script type="text/javascript">
                 function onSignIn(googleUser) {
@@ -89,7 +97,7 @@
                 }
             </script>
         </div>
-        <div class="Email-login">
+        <div class="login-item Email-login">
             <button id="email-login-button" class="btn btn-action"
                 onclick="location.href='/login/email';">이메일 로그인</button>
         </div>
